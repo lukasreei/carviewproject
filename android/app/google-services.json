@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "327926330431",
+    "project_id": "carviewproject",
+    "storage_bucket": "carviewproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:327926330431:android:15eda19f14342efa89748a",
+        "android_client_info": {
+          "package_name": "com.example.carviewproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzkF4orvEB7v4rLQ7t1-sV-MFwLpAdgcE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

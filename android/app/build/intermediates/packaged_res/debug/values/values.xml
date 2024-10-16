@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gcm_defaultSenderId" translatable="false">327926330431</string>
+    <string name="google_api_key" translatable="false">AIzaSyCzkF4orvEB7v4rLQ7t1-sV-MFwLpAdgcE</string>
+    <string name="google_app_id" translatable="false">1:327926330431:android:15eda19f14342efa89748a</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCzkF4orvEB7v4rLQ7t1-sV-MFwLpAdgcE</string>
+    <string name="google_storage_bucket" translatable="false">carviewproject.appspot.com</string>
+    <string name="project_id" translatable="false">carviewproject</string>
+    <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        
+        <item name="android:windowBackground">@drawable/launch_background</item>
+    </style>
+    <style name="NormalTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        <item name="android:windowBackground">?android:colorBackground</item>
+    </style>
+</resources>

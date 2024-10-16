@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'car_details.dart';
+import 'car_list_page.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 
 class Homepage extends StatefulWidget {
-  const Homepage({super.key});
+  final FirebaseAnalytics analytics;
+
+  const Homepage({super.key, required this.analytics});
 
   @override
   State<Homepage> createState() => _HomepageState();
@@ -25,8 +28,24 @@ class _HomepageState extends State<Homepage> {
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
         setState(() {
-          _carList = data['data']; // Assume que a lista de carros está na chave 'data'
+          _carList = data['data'];
         });
+
+        await widget.analytics.logEvent(
+          name: 'search_car',
+          parameters: {
+            'brand': brand,
+            'results': _carList.length,
+            'timestamp': DateTime.now().toIso8601String(),
+          },
+        );
+        print('Evento search_car registrado com sucesso');
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => CarListPage(carList: _carList),
+          ),
+        );
       } else {
         print('Erro: Status code ${response.statusCode}');
       }
@@ -41,7 +60,19 @@ class _HomepageState extends State<Homepage> {
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
+            Container(
+              width: double.infinity,
+              height: 360,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/images/logo.png'),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
             TextField(
               controller: _controller,
               decoration: const InputDecoration(
@@ -62,30 +93,6 @@ class _HomepageState extends State<Homepage> {
               child: const Text('Pesquisar'),
             ),
             const SizedBox(height: 20),
-            // Verifica se há dados na lista e renderiza usando ListView.builder
-            _carList.isNotEmpty
-                ? ListView.builder(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: _carList.length,
-              itemBuilder: (context, index) {
-                final car = _carList[index];
-                return ListTile(
-                  title: Text(car['name'] ?? 'Nome não disponível'),
-
-                  onTap: () {
-                    // Navega para a tela de detalhes passando o carro selecionado
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => CarDetails(car: car),
-                      ),
-                    );
-                  },
-                );
-              },
-            )
-                : const Text('Nenhum carro encontrado'),
           ],
         ),
       ),

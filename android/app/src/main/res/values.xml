@@ -1,0 +1,5 @@
+<resources>
+    <string name="default_web_client_id">YOUR_WEB_CLIENT_ID_HERE</string>
+    <string name="ga_trackingId">YOUR_GA_TRACKING_ID_HERE</string>
+    <string name="google_api_key">YOUR_API_KEY_HERE</string>
+</resources>
