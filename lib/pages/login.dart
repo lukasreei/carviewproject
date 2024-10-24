@@ -33,23 +33,40 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Login')),
       body: Center(
-        child: ElevatedButton(
-          onPressed: () async {
-            final user = await _signInWithGoogle(context);
-            if (user != null) {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => Homepage(analytics: FirebaseAnalytics.instance),
-                ),
-              );
-            } else {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Falha ao fazer login, tente novamente.')),
-              );
-            }
-          },
-          child: const Text('Login com Google'),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () async {
+                final user = await _signInWithGoogle(context);
+                if (user != null) {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Homepage(analytics: FirebaseAnalytics.instance),
+                    ),
+                  );
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Falha ao fazer login, tente novamente.')),
+                  );
+                }
+              },
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.black87, backgroundColor: Colors.amberAccent,
+                minimumSize: Size(160, 60),
+              ),
+              child: const Text('Login com Google',
+                  style: TextStyle(fontSize: 24),
+              ),
+            ),
+            const SizedBox(height: 20,),
+            ElevatedButton(onPressed: (){},
+              style: ElevatedButton.styleFrom(
+                minimumSize: Size(160, 60)
+              ),
+            child: Text('Register', style: TextStyle(fontSize: 24),),)
+          ],
         ),
       ),
     );
