@@ -10,6 +10,7 @@ class CarListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.grey,
         title: const Text('Resultados da Pesquisa'),
       ),
       body: carList.isNotEmpty
@@ -18,9 +19,8 @@ class CarListPage extends StatelessWidget {
         itemBuilder: (context, index) {
           final car = carList[index];
           return ListTile(
-            title: Text(car['name'] ?? 'Nome não disponível'),
+            title: Center(child: Text(car['name'] ?? 'Nome não disponível')),
             onTap: () {
-              // Navega para a tela de detalhes passando o carro selecionado
               Navigator.push(
                 context,
                 MaterialPageRoute(

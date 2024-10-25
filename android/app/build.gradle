@@ -43,5 +43,7 @@ flutter {
 dependencies {
     implementation platform('com.google.firebase:firebase-bom:32.0.0') // Usando o Firebase BOM para gerenciar as versões
     implementation 'com.google.firebase:firebase-analytics' // Firebase Analytics
+    implementation 'com.facebook.android:facebook-login:latest.release'
+
 }
 apply plugin: 'com.google.gms.google-services'

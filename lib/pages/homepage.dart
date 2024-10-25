@@ -73,16 +73,23 @@ class _HomepageState extends State<Homepage> {
               ),
             ),
             const SizedBox(height: 20),
-            TextField(
-              controller: _controller,
-              decoration: const InputDecoration(
-                labelText: 'Digite a marca',
-                hintText: 'exemplo BMW',
-                prefixIcon: Icon(Icons.search),
-                border: OutlineInputBorder(),
+            Padding(
+              padding: const EdgeInsets.all(26.0),
+              child: TextField(
+                style: TextStyle(fontSize: 20),
+                controller: _controller,
+                decoration: const InputDecoration(
+                  labelText: 'Digite a marca',
+                  hintText: 'exemplo BMW',
+                  prefixIcon: Icon(Icons.search),
+                  border: OutlineInputBorder(),
+                ),
               ),
             ),
             TextButton(
+              style: TextButton.styleFrom(
+                textStyle: TextStyle(fontSize: 20)
+              ),
               onPressed: () {
                 final brand = _controller.text;
                 if (brand.isNotEmpty) {
@@ -91,7 +98,18 @@ class _HomepageState extends State<Homepage> {
                   print('Digite uma marca válida');
                 }
               },
-              child: const Text('Pesquisar'),
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Pesquisar'),
+                  SizedBox(width: 12,),
+                  Icon(
+                    Icons.search,
+                    color: Colors.black87,
+                    size: 24,
+                  )
+                ],
+              ),
             ),
             const SizedBox(height: 20),
           ],

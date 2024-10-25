@@ -61,6 +61,7 @@ class _CarDetailsState extends State<CarDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.grey,
         title: Text(widget.car['name'] ?? 'Detalhes do Carro'),
       ),
       body: isLoading
@@ -69,33 +70,35 @@ class _CarDetailsState extends State<CarDetails> {
           ? const Center(child: Text('Detalhes não disponíveis'))
           : Padding(
         padding: const EdgeInsets.all(16.0),
-        child: ListView(
-          children: [
-            buildDetail('ID', carDetails!['id']),
-            buildDetail('Nome', carDetails!['name']),
-            buildDetail('Descrição', carDetails!['description']),
-            buildDetail('Preço sugerido (MSRP)', carDetails!['msrp']),
-            buildDetail('Fatura', carDetails!['invoice']),
-            const SizedBox(height: 20),
-            buildDetail('Marca', carDetails!['make_model']['make']['name']),
-            buildDetail('Modelo', carDetails!['make_model']['name']),
-            buildDetail('Ano', carDetails!['year']),
-            const SizedBox(height: 20),
-            buildDetail('Tipo de veículo', carDetails!['make_model_trim_body']['type']),
-            buildDetail('Portas', carDetails!['make_model_trim_body']['doors']),
-            buildDetail('Assentos', carDetails!['make_model_trim_body']['seats']),
-            buildDetail('Comprimento', carDetails!['make_model_trim_body']['length']),
-            buildDetail('Largura', carDetails!['make_model_trim_body']['width']),
-            const SizedBox(height: 20),
-            buildDetail('Tipo de motor', carDetails!['make_model_trim_engine']['engine_type']),
-            buildDetail('Combustível', carDetails!['make_model_trim_engine']['fuel_type']),
-            buildDetail('Potência', carDetails!['make_model_trim_engine']['horsepower_hp']),
-            buildDetail('Torque', carDetails!['make_model_trim_engine']['torque_ft_lbs']),
-            buildDetail('Transmissão', carDetails!['make_model_trim_engine']['transmission']),
-            const SizedBox(height: 20),
-            buildDetail('Consumo combinado (MPG)', carDetails!['make_model_trim_mileage']['combined_mpg']),
-            buildDetail('Capacidade do tanque', carDetails!['make_model_trim_mileage']['fuel_tank_capacity']),
-          ],
+        child:SingleChildScrollView(
+          child: Column(
+            children: [
+              buildDetail('ID', carDetails!['id']),
+              buildDetail('Nome', carDetails!['name']),
+              buildDetail('Descrição', carDetails!['description']),
+              buildDetail('Preço sugerido (MSRP)', carDetails!['msrp']),
+              buildDetail('Fatura', carDetails!['invoice']),
+              const Divider(),
+              buildDetail('Marca', carDetails!['make_model']['make']['name']),
+              buildDetail('Modelo', carDetails!['make_model']['name']),
+              buildDetail('Ano', carDetails!['year']),
+              const Divider(),
+              buildDetail('Tipo de veículo', carDetails!['make_model_trim_body']['type']),
+              buildDetail('Portas', carDetails!['make_model_trim_body']['doors']),
+              buildDetail('Assentos', carDetails!['make_model_trim_body']['seats']),
+              buildDetail('Comprimento', carDetails!['make_model_trim_body']['length']),
+              buildDetail('Largura', carDetails!['make_model_trim_body']['width']),
+              const Divider(),
+              buildDetail('Tipo de motor', carDetails!['make_model_trim_engine']['engine_type']),
+              buildDetail('Combustível', carDetails!['make_model_trim_engine']['fuel_type']),
+              buildDetail('Potência', carDetails!['make_model_trim_engine']['horsepower_hp']),
+              buildDetail('Torque', carDetails!['make_model_trim_engine']['torque_ft_lbs']),
+              buildDetail('Transmissão', carDetails!['make_model_trim_engine']['transmission']),
+              const Divider(),
+              buildDetail('Consumo combinado (MPG)', carDetails!['make_model_trim_mileage']['combined_mpg']),
+              buildDetail('Capacidade do tanque', carDetails!['make_model_trim_mileage']['fuel_tank_capacity']),
+            ],
+          ),
         ),
       ),
     );

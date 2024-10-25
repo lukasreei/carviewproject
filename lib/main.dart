@@ -1,5 +1,4 @@
-import 'package:carviewproject/pages/homepage.dart';
-import 'package:carviewproject/pages/login.dart'; // Importa a LoginPage
+import 'package:carviewproject/pages/login.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
     final FirebaseAnalytics analytics = FirebaseAnalytics.instance;
 
     return MaterialApp(
-      home: LoginPage(), // Altera a home para LoginPage
+      home: LoginPage(),
       navigatorObservers: [
         FirebaseAnalyticsObserver(analytics: analytics),
       ],
