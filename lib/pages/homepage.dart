@@ -78,6 +78,7 @@ class _HomepageState extends State<Homepage> {
               decoration: const InputDecoration(
                 labelText: 'Digite a marca',
                 hintText: 'exemplo BMW',
+                prefixIcon: Icon(Icons.search),
                 border: OutlineInputBorder(),
               ),
             ),
