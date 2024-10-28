@@ -57,7 +57,7 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.yellowAccent,
       body: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -67,7 +67,7 @@ class _HomepageState extends State<Homepage> {
               height: 360,
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/images/logo.png'),
+                  image: AssetImage('assets/images/newlogo.png'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -78,37 +78,49 @@ class _HomepageState extends State<Homepage> {
               child: TextField(
                 style: TextStyle(fontSize: 20),
                 controller: _controller,
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   labelText: 'Digite a marca',
+                  labelStyle: const TextStyle(fontSize: 26, color: Colors.black87,),
                   hintText: 'exemplo BMW',
-                  prefixIcon: Icon(Icons.search),
-                  border: OutlineInputBorder(),
+                  alignLabelWithHint: true,
+                  prefixIcon: const Icon(Icons.search),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(24.0)
+                  ),
+                  filled: true,
+                  fillColor: Colors.white
                 ),
               ),
             ),
-            TextButton(
-              style: TextButton.styleFrom(
-                textStyle: TextStyle(fontSize: 20)
-              ),
-              onPressed: () {
-                final brand = _controller.text;
-                if (brand.isNotEmpty) {
-                  fetchCarData(brand);
-                } else {
-                  print('Digite uma marca válida');
-                }
-              },
-              child: const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text('Pesquisar'),
-                  SizedBox(width: 12,),
-                  Icon(
-                    Icons.search,
-                    color: Colors.black87,
-                    size: 24,
-                  )
-                ],
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                    padding: EdgeInsets.symmetric(vertical: 14.0),
+                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  textStyle: TextStyle(fontSize: 18,)
+                ),
+                onPressed: () {
+                  final brand = _controller.text;
+                  if (brand.isNotEmpty) {
+                    fetchCarData(brand);
+                  } else {
+                    print('Digite uma marca válida');
+                  }
+                },
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('Pesquisar'),
+                    SizedBox(width: 12,),
+                    Icon(
+                      Icons.search,
+                      color: Colors.black87,
+                      size: 24,
+                    )
+                  ],
+                ),
               ),
             ),
             const SizedBox(height: 20),
