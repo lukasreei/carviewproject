@@ -57,7 +57,9 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.yellowAccent,
+      appBar: AppBar(backgroundColor: Colors.black87, title: const Text('Home'),
+        titleTextStyle: TextStyle(color: Colors.white, fontSize: 24),),
+      backgroundColor: Colors.grey,
       body: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,

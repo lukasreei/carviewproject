@@ -31,7 +31,9 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Login')),
+      appBar: AppBar(title: const Text('Login'),titleTextStyle: TextStyle(color: Colors.white, fontSize: 24),
+      backgroundColor: Colors.black87,),
+      backgroundColor: Colors.grey,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -56,8 +58,15 @@ class LoginPage extends StatelessWidget {
                 foregroundColor: Colors.black87, backgroundColor: Colors.amberAccent,
                 minimumSize: Size(160, 60),
               ),
-              child: const Text('Login com Google',
-                  style: TextStyle(fontSize: 24),
+              child: const Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.login, size: 24, color: Colors.black87,),
+                  SizedBox(width: 12,),
+                  Text('Login com Google',
+                      style: TextStyle(fontSize: 24),
+                  ),
+                ],
               ),
             ),
             const SizedBox(height: 20,),

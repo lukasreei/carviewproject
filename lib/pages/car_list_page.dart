@@ -10,9 +10,10 @@ class CarListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.grey,
-        title: const Text('Resultados da Pesquisa'),
+        backgroundColor: Colors.black87,
+        title: const Text('Resultados da Pesquisa'),titleTextStyle: TextStyle(color: Colors.white, fontSize: 24),
       ),
+      backgroundColor: Colors.white,
       body: carList.isNotEmpty
           ? ListView.builder(
         itemCount: carList.length,

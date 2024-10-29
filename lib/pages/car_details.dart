@@ -61,8 +61,9 @@ class _CarDetailsState extends State<CarDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.black87,
         title: Text(widget.car['name'] ?? 'Detalhes do Carro'),
+        titleTextStyle: const TextStyle(color: Colors.white, fontSize: 26),
       ),
       body: isLoading
           ? const Center(child: CircularProgressIndicator())
