@@ -1,14 +1,13 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:carviewproject/pages/authentication/google.dart';
-import 'homepage.dart';
+import 'package:carviewproject/pages/authentication/email.dart';
+import 'package:carviewproject/pages/homepage.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:carviewproject/pages/authentication/register.dart';
 
 class LoginPage extends StatelessWidget {
-  final GoogleAuthService _googleAuthService = GoogleAuthService();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,25 +20,28 @@ class LoginPage extends StatelessWidget {
         children: [
           Container(
             decoration: const BoxDecoration(
-              image: DecorationImage(image: AssetImage('assets/images/login.png'),fit: BoxFit.cover),
+              image: DecorationImage(image: AssetImage('assets/images/login.png'), fit: BoxFit.cover),
             ),
           ),
           const Positioned(
             top: 100,
             left: 0,
             right: 0,
-            child: Text('CARS STORE',
+            child: Text(
+              'CARS STORE',
               textAlign: TextAlign.center,
-              style:TextStyle(fontSize: 38, fontWeight: FontWeight.bold, color: Colors.red),
+              style: TextStyle(fontSize: 38, fontWeight: FontWeight.bold, color: Colors.grey),
             ),
           ),
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                EmailLoginPage(),
+                const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () async {
-                    final user = await _googleAuthService.signInWithGoogle();
+                    final user = await GoogleAuthService().signInWithGoogle();
                     if (user != null) {
                       Navigator.pushReplacement(
                         context,
@@ -55,7 +57,7 @@ class LoginPage extends StatelessWidget {
                   },
                   style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.black87,
-                    backgroundColor: Colors.red,
+                    backgroundColor: Colors.grey,
                     minimumSize: Size(160, 60),
                   ),
                   child: const Row(
@@ -71,11 +73,22 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
+
+                // Botão de registro
                 ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(minimumSize: Size(160, 60)),
-                  child: Text(
-                    'Register',
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => RegisterPage()),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: Size(160, 60),
+                    foregroundColor: Colors.black87,
+                    backgroundColor: Colors.grey,
+                  ),
+                  child: const Text(
+                    'Registrar',
                     style: TextStyle(fontSize: 24),
                   ),
                 ),
