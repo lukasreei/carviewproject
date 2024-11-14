@@ -14,9 +14,7 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _displayNameController = TextEditingController();
 
-  // Função para registrar o usuário
   Future<void> registerUser(BuildContext context) async {
-    // Validação básica dos campos de entrada
     if (_displayNameController.text.isEmpty ||
         _emailController.text.isEmpty ||
         _passwordController.text.isEmpty) {
@@ -74,37 +72,59 @@ class _RegisterPageState extends State<RegisterPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Register'),
+        titleTextStyle: TextStyle(color: Colors.white, fontSize: 24),
+        backgroundColor: Colors.black87,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            TextField(
-              controller: _displayNameController,
-              decoration: const InputDecoration(labelText: 'Nome'),
-            ),
-            TextField(
-              controller: _emailController,
-              decoration: const InputDecoration(labelText: 'Email'),
-              keyboardType: TextInputType.emailAddress,
-            ),
-            TextField(
-              controller: _passwordController,
-              decoration: const InputDecoration(labelText: 'Senha'),
-              obscureText: true,
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () => registerUser(context),
-              child: const Text('Registrar', style: TextStyle(fontSize: 26),),
-              style: ElevatedButton.styleFrom(
-                foregroundColor: Colors.black87,
-                backgroundColor: Colors.red,
-                minimumSize: Size(160, 60),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/registerimage.png'),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextField(
+                controller: _displayNameController,
+                decoration: const InputDecoration(labelText: 'Nome',
+                labelStyle: TextStyle(color: Colors.white),
+                focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
+                enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white))),
+
               ),
-            ),
-          ],
+              SizedBox(height: 20,),
+              TextField(
+                controller: _emailController,
+                decoration: const InputDecoration(labelText: 'Email',
+                    labelStyle: TextStyle(color: Colors.white),
+                focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white),),
+                enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white))),
+                keyboardType: TextInputType.emailAddress,
+              ),
+              SizedBox(height: 20,),
+              TextField(
+                controller: _passwordController,
+                decoration: const InputDecoration(labelText: 'Senha',
+                labelStyle: TextStyle(color: Colors.white),
+                focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
+                enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white))),
+                obscureText: true,
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () => registerUser(context),
+                child: const Text('Registrar', style: TextStyle(fontSize: 26),),
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.black87,
+                  backgroundColor: Colors.grey,
+                  minimumSize: Size(160, 60),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
