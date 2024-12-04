@@ -73,8 +73,6 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
-
-                // Botão de registro
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(

@@ -46,17 +46,22 @@ dependencies:
   google_fonts: ^6.2.1
   firebase_database: ^11.1.5
   cloud_firestore: ^5.4.5
+  intl_utils: ^2.8.7
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^4.0.0
+flutter_intl:
+    enable: true
+    arb_dir: lib/l10n
+    output_dir: lib/generated
+    class_name: S
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

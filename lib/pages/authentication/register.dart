@@ -25,7 +25,6 @@ class _RegisterPageState extends State<RegisterPage> {
     }
 
     try {
-      // Criar o usuário com o FirebaseAuth
       UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
         email: _emailController.text.trim(),
         password: _passwordController.text.trim(),
@@ -33,18 +32,16 @@ class _RegisterPageState extends State<RegisterPage> {
 
       User? user = userCredential.user;
       if (user != null) {
-        // Armazenar dados adicionais no Firestore
         await _firestore.collection('usuarios').doc(user.uid).set({
           'displayName': _displayNameController.text.trim(),
           'email': _emailController.text.trim(),
           'createdAt': Timestamp.now(),
         });
 
-        // Exibir mensagem de sucesso
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Registrado com sucesso!')),
         );
-        return; // Finaliza a execução da função após o registro
+        return;
       }
     } on FirebaseAuthException catch (e) {
       String errorMessage;
@@ -89,7 +86,7 @@ class _RegisterPageState extends State<RegisterPage> {
             children: [
               TextField(
                 controller: _displayNameController,
-                decoration: const InputDecoration(labelText: 'Nome',
+                decoration: const InputDecoration(labelText: 'NOME',
                 labelStyle: TextStyle(color: Colors.white),
                 focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
                 enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white))),
@@ -98,7 +95,7 @@ class _RegisterPageState extends State<RegisterPage> {
               SizedBox(height: 20,),
               TextField(
                 controller: _emailController,
-                decoration: const InputDecoration(labelText: 'Email',
+                decoration: const InputDecoration(labelText: 'E-MAIL',
                     labelStyle: TextStyle(color: Colors.white),
                 focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white),),
                 enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white))),
@@ -107,7 +104,7 @@ class _RegisterPageState extends State<RegisterPage> {
               SizedBox(height: 20,),
               TextField(
                 controller: _passwordController,
-                decoration: const InputDecoration(labelText: 'Senha',
+                decoration: const InputDecoration(labelText: 'SENHA',
                 labelStyle: TextStyle(color: Colors.white),
                 focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
                 enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white))),

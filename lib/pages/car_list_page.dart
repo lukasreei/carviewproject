@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'car_details.dart';
+import 'detailscar/car_details.dart';
 
 class CarListPage extends StatelessWidget {
   final List<dynamic> carList;
