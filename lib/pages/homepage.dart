@@ -77,7 +77,7 @@ class _HomepageState extends State<Homepage> {
           ),
           Column(
             children: [
-              const SizedBox(height: 360), // Espaço para a imagem
+              const SizedBox(height: 360),
               Padding(
                 padding: const EdgeInsets.all(26.0),
                 child: TextField(

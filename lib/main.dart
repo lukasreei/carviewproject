@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       home: LoginPage(),
+      debugShowCheckedModeBanner: false,
       navigatorObservers: [
         FirebaseAnalyticsObserver(analytics: analytics),
       ],
