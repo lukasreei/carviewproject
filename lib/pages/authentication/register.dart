@@ -67,11 +67,6 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Register'),
-        titleTextStyle: TextStyle(color: Colors.white, fontSize: 24),
-        backgroundColor: Colors.black87,
-      ),
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -90,7 +85,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 labelStyle: TextStyle(color: Colors.white),
                 focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
                 enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white))),
-
+                style: TextStyle(color: Colors.white),
               ),
               SizedBox(height: 20,),
               TextField(
@@ -99,6 +94,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     labelStyle: TextStyle(color: Colors.white),
                 focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white),),
                 enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white))),
+                style: TextStyle(color: Colors.white),
                 keyboardType: TextInputType.emailAddress,
               ),
               SizedBox(height: 20,),
@@ -108,6 +104,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 labelStyle: TextStyle(color: Colors.white),
                 focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
                 enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white))),
+                style: TextStyle(color: Colors.white),
                 obscureText: true,
               ),
               const SizedBox(height: 20),
