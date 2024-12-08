@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:carviewproject/pages/authentication/google.dart';
 import 'package:carviewproject/pages/authentication/email.dart';
-import 'package:carviewproject/pages/homepage.dart';
+import 'package:carviewproject/pages/home/homepage.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:carviewproject/pages/authentication/register.dart';
 

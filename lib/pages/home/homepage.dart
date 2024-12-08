@@ -1,7 +1,8 @@
+import 'package:carviewproject/pages/login.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'car_list_page.dart';
+import '../car_list_page.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 
 class Homepage extends StatefulWidget {
@@ -61,6 +62,11 @@ class _HomepageState extends State<Homepage> {
         backgroundColor: Colors.black87,
         title: const Text('Home'),
         titleTextStyle: TextStyle(color: Colors.white, fontSize: 24),
+        actions: [
+          IconButton(onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+          }, icon: Icon(Icons.logout))
+        ],
       ),
       backgroundColor: Colors.grey,
       body: Stack(
