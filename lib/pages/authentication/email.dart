@@ -117,7 +117,7 @@ class _EmailLoginPageState extends State<EmailLoginPage> {
             style: ElevatedButton.styleFrom(
               foregroundColor: Colors.black87,
               backgroundColor: Colors.grey,
-              minimumSize: Size(160, 60),
+              fixedSize: Size(270, 60)
             ),
             child: const Text(
               'Login com E-mail',

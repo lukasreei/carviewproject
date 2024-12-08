@@ -53,12 +53,11 @@ class LoginPage extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.black87,
                     backgroundColor: Colors.grey,
-                    minimumSize: Size(160, 60),
+                    fixedSize: Size(270, 60)
                   ),
                   child: const Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Icon(Icons.login, size: 24, color: Colors.black87),
                       SizedBox(width: 12),
                       Text(
                         'Login com Google',
@@ -76,7 +75,7 @@ class LoginPage extends StatelessWidget {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    minimumSize: Size(160, 60),
+                    fixedSize: Size(270, 60),
                     foregroundColor: Colors.black87,
                     backgroundColor: Colors.grey,
                   ),
