@@ -11,7 +11,10 @@ class CarListPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black87,
-        title: const Text('Resultados da Pesquisa'),titleTextStyle: TextStyle(color: Colors.white, fontSize: 24),
+        title: const Text('Resultados da Pesquisa',
+        style: TextStyle(color: Colors.white,fontSize: 24,fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
       ),
       backgroundColor: Colors.white,
       body: carList.isNotEmpty
@@ -19,16 +22,26 @@ class CarListPage extends StatelessWidget {
         itemCount: carList.length,
         itemBuilder: (context, index) {
           final car = carList[index];
-          return ListTile(
-            title: Center(child: Text(car['name'] ?? 'Nome não disponível')),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => CarDetails(car: car),
-                ),
-              );
-            },
+          return Card(
+            margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            elevation: 4,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: ListTile(
+              title: Center(child: Text(car['name'] ?? 'Nome não disponível')),
+              subtitle: Text('Detalhes Disponiveis', style: TextStyle(color: Colors.grey[600]),
+              ),
+              trailing: Icon(Icons.arrow_forward_ios, color: Colors.black87,),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CarDetails(car: car),
+                  ),
+                );
+              },
+            ),
           );
         },
       )

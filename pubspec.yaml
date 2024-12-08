@@ -79,6 +79,10 @@ flutter:
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
+  fonts:
+    - family: TheSeasons
+      fonts:
+        - asset: assets/fonts/TheSeasons-Regular.ttf
   assets:
     - assets/images/
 
