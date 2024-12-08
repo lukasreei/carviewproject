@@ -1,10 +1,8 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:carviewproject/pages/authentication/google.dart';
 import 'package:carviewproject/pages/authentication/email.dart';
 import 'package:carviewproject/pages/home/homepage.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:carviewproject/pages/authentication/register.dart';
 
 class LoginPage extends StatelessWidget {
@@ -15,17 +13,7 @@ class LoginPage extends StatelessWidget {
         children: [
           Container(
             decoration: const BoxDecoration(
-              image: DecorationImage(image: AssetImage('assets/images/login.png'), fit: BoxFit.cover),
-            ),
-          ),
-          const Positioned(
-            top: 100,
-            left: 0,
-            right: 0,
-            child: Text(
-              'CARS STORE',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 38, fontWeight: FontWeight.bold, color: Colors.grey),
+              image: DecorationImage(image: AssetImage('assets/images/login (1).png'), fit: BoxFit.cover),
             ),
           ),
           Center(
@@ -52,7 +40,6 @@ class LoginPage extends StatelessWidget {
                   },
                   style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.black87,
-                    backgroundColor: Colors.grey,
                     fixedSize: Size(270, 60)
                   ),
                   child: const Row(
@@ -77,7 +64,6 @@ class LoginPage extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     fixedSize: Size(270, 60),
                     foregroundColor: Colors.black87,
-                    backgroundColor: Colors.grey,
                   ),
                   child: const Text(
                     'Registrar',

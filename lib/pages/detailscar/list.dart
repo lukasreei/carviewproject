@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:carviewproject/pages/detailscar/car_details.dart';
 
 Widget buildDetail(String label, dynamic value) {
   if (value == null || value.toString().isEmpty) {

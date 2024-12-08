@@ -113,7 +113,6 @@ class _RegisterPageState extends State<RegisterPage> {
                 child: const Text('Registrar', style: TextStyle(fontSize: 26),),
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.black87,
-                  backgroundColor: Colors.grey,
                   minimumSize: Size(160, 60),
                 ),
               ),

@@ -97,7 +97,6 @@ class _HomepageState extends State<Homepage> {
                     ),
                     hintText: 'exemplo BMW',
                     alignLabelWithHint: true,
-                    prefixIcon: const Icon(Icons.search),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(24.0),
                     ),
