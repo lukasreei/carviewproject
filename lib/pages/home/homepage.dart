@@ -65,7 +65,7 @@ class _HomepageState extends State<Homepage> {
         actions: [
           IconButton(onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-          }, icon: Icon(Icons.logout))
+          }, icon: Icon(Icons.logout, color: Colors.white,))
         ],
       ),
       backgroundColor: Colors.grey,

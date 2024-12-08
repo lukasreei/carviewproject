@@ -11,6 +11,7 @@ class CarListPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black87,
+        iconTheme: IconThemeData(color: Colors.white),
         title: const Text('Resultados da Pesquisa',
         style: TextStyle(color: Colors.white,fontSize: 24,fontWeight: FontWeight.bold),
         ),

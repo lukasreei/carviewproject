@@ -84,6 +84,7 @@ class _CarDetailsState extends State<CarDetails> {
     return Scaffold(
       appBar: AppBar(
        backgroundColor: Colors.black87,
+        iconTheme: IconThemeData(color: Colors.white),
         title: Text(
           widget.car['name'] ?? 'Detalhes do Carro',
           style: const TextStyle(fontFamily: 'The Seasons', fontSize: 22, color: Colors.white),
