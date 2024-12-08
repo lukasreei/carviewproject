@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'package:carviewproject/pages/detailscar/list.dart';
 
 class CarDetails extends StatefulWidget {
   final Map<String, dynamic> car;
@@ -52,31 +51,75 @@ class _CarDetailsState extends State<CarDetails> {
     if (value == null || value.toString().isEmpty) {
       return const SizedBox.shrink();
     }
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 5.0),
-      child: Text('$label: $value'),
+    return Card(
+      color: Colors.black87,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      elevation: 5,
+      margin: const EdgeInsets.symmetric(vertical: 10),
+      child: ListTile(
+        title: Text(
+          label,
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 16,
+            color: Colors.white,
+          ),
+        ),
+        subtitle: Text(
+          value.toString(),
+          style: const TextStyle(fontSize: 14, color: Colors.white70),
+        ),
+      ),
     );
+  }
+
+  List<Widget> buildDetailsList(Map<String, dynamic> details) {
+    return details.entries.map((entry) {
+      return buildDetail(entry.key, entry.value);
+    }).toList();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black87,
-        title: Text(widget.car['name'] ?? 'Detalhes do Carro'),
-        titleTextStyle: const TextStyle(color: Colors.white, fontSize: 26),
+       backgroundColor: Colors.black87,
+        title: Text(
+          widget.car['name'] ?? 'Detalhes do Carro',
+          style: const TextStyle(fontFamily: 'The Seasons', fontSize: 22, color: Colors.white),
+        ),
+        centerTitle: true,
       ),
       body: isLoading
-          ? const Center(child: CircularProgressIndicator())
+          ? Center(
+        child: CircularProgressIndicator(
+          valueColor: AlwaysStoppedAnimation<Color>(Colors.purpleAccent),
+        ),
+      )
           : carDetails == null
-          ? const Center(child: Text('Detalhes não disponíveis'))
+          ? const Center(
+        child: Text(
+          'Detalhes não disponíveis',
+          style: TextStyle(fontSize: 18, color: Colors.white),
+        ),
+      )
           : Padding(
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
-          child: Center(
-            child: Column(
-              children: buildDetailsList(carDetails!),
-            ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                widget.car['name'] ?? '',
+                style: const TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+              const SizedBox(height: 10),
+              ...buildDetailsList(carDetails!),
+            ],
           ),
         ),
       ),
