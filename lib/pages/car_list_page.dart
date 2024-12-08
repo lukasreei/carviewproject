@@ -29,7 +29,7 @@ class CarListPage extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
             ),
             child: ListTile(
-              title: Center(child: Text(car['name'] ?? 'Nome não disponível')),
+              title: Text(car['name'] ?? 'Nome não disponível', style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
               subtitle: Text('Detalhes Disponiveis', style: TextStyle(color: Colors.grey[600]),
               ),
               trailing: Icon(Icons.arrow_forward_ios, color: Colors.black87,),
